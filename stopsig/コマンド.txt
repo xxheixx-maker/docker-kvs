@@ -1,0 +1,6 @@
+docker image build ./ -t stopsig1
+
+docker container run --rm -d --name stsig1 stopsig1
+
+調査用
+docker container run --rm -it --name stsig1 stopsig1 bash
