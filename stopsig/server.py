@@ -5,6 +5,9 @@ a = 123
 b = 'abc'
 f = 1.2345
 
+e = 3
+f = 4
+
 def handle_signal(signal_number, stack_frame):
   # formatを使った書き方
   print('{} and {}'.format(a,b))
@@ -15,6 +18,9 @@ def handle_signal(signal_number, stack_frame):
   # 置換フィールドのネスト（forとの組み合わせ）
   for i in range(5):
     print(f'res:{f:.{i}f}')
+  #f文字列の場合、式も書ける、formatの場合はエラーになる
+  print(f'{e} * {f} = {e * f})
+  # print('{e} * {f} = {a * b}'.format(a=a,b=b))   => これは「KeyError: 'a + b'」となる
   sys.exit(0)
 signal.signal(signal.SIGINT, handle_signal)
 
